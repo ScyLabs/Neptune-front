@@ -81,6 +81,7 @@ class ContactController extends AbstractController
                         $webmasterMail = (new \Swift_Message($this->trans('contact.oneRequest').$_SERVER['HTTP_HOST']))
                             ->setFrom($from)
                             ->setTo($infos->getMail())
+                            ->addReplyTo($contactRequest->getEmail())
                             ->setBody(
                                 $this->get('templating')->render(
                                     'api/mail/contact_webmaster.html.twig',
