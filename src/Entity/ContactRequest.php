@@ -60,6 +60,13 @@ class ContactRequest
      */
     private $subject;
 
+    /**
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $phone;
+
+
+
 
     public function getId(): ?int
     {
@@ -150,6 +157,14 @@ class ContactRequest
     {
         $this->subject = $subject;
 
+        return $this;
+    }
+
+    public function getPhone() : ?string {
+        return $this->phone;
+    }
+    public function setPhone(?string $phone) : self {
+        $this->phone = $phone;
         return $this;
     }
     public function toArray(){

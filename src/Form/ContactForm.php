@@ -33,6 +33,8 @@ class ContactForm extends AbstractType
             $contactType = $options['contactType'];
         }
 
+
+
         $builder->add('name', TextType::class, array(
             'label'=> 'Nom',
             'constraints' => array(
@@ -45,6 +47,19 @@ class ContactForm extends AbstractType
                     new NotBlank(),
                     new Email()
                 )
+            ))
+            ->add('phone', TextType::class, array(
+                'label'=> 'Telephone',
+                'attr'  => [
+                    'placeholder'   => 'Votre téléphone *'
+                ],
+                'constraints' => array(
+                    new NotBlank(),
+                    new Regex([
+                        'pattern'   => "#((?:\+|00)[17](?: |\-)?|(?:\+|00)[1-9]\d{0,2}(?: |\-)?|(?:\+|00)1\-\d{3}(?: |\-)?)?(0\d|\([0-9]{3}\)|[1-9]{0,3})(?:((?: |\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\-)[0-9]{3}(?: |\-)[0-9]{4})|([0-9]{7}))#",
+                        "message"   =>  "Invalid phone number"
+                    ])
+                ),
             ))
             ->add('subject', TextType::class, array(
                 'label'=> 'Sujet',
