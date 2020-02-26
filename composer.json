@@ -4,6 +4,7 @@
     "require": {
         "php": "^7",
         "scylabs/neptune-bundle": "^1",
+        "scylabs/hook-bundle": "^1",
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",

@@ -72,6 +72,7 @@
     {% endblock %}
     {% include 'footer.html.twig' %}
 
-    <script src="{{ asset('js/load.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/lib/script-loader/dist/scriptLoader.min.js') }}" type="text/javascript" onload="scriptLoader = new ScriptLoader();scriptLoader.add(dependances);scriptLoader.load();"></script>
+    <script>{% block afterScriptLoader %}{% endblock %}{{ showHook(_self,'ScyLabsNeptuneFront.afterScriptLoader') }} scriptLoader.load();</script>
 </body>
 </html>
