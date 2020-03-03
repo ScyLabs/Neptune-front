@@ -1,7 +1,7 @@
 {{ form_start(form,{'attr': {'data-step':'1'}}) }}
     {% for child in form %}
         {% if child.vars.block_prefixes[1] == 'submit' %}
-            <div class="form-group" data-step="1">
+            <div class="form-group {{ child.vars.name }}" data-step="1">
                 <div class="g-recaptcha" data-sitekey="6Le41GwUAAAAANSBGml8877-JtZB5TGaymzuG6sT" ></div>
             </div>
         {% endif %}
