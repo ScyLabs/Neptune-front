@@ -13,7 +13,7 @@
     </script>
 
     <meta charset="utf-8"/>
-    <title>{{ (page.detail(locale).metaTitle is null) ? (page.detail(locale).title ~ ' | ' ~ infos.name ~' - ' ~infos.city) : page.detail(locale).metaTitle  }}</title>
+    <title>{{ (page.detail(locale).metaTitle is null) ? (page.detail(locale).title ?? page.detail(locale).name ~ ' | ' ~ infos.name ~' - ' ~infos.city) : page.detail(locale).metaTitle  }}</title>
     <meta name="Description" content="{{ getFirstText(page,locale) | striptags | raw }}"/>
     <meta name="viewport" content="width=device-width"/>
     {# Transformer les fichiers less en fichier css a la mise en ligne#}
